@@ -72,7 +72,7 @@ export default function AutoLoanPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">Calculate your true car payment</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              This auto loan calculator includes all the factors that affect your real car payment: vehicle price, down payment, trade-in value, state sales tax, interest rate, and loan term. Many buyers forget that sales tax is added to the financed amount, increasing the loan balance. Enter your state&apos;s sales tax rate or the exact rate from your dealer to see your true monthly car payment.
+              This auto loan calculator includes all the factors that affect your real car payment: vehicle price, down payment, trade-in value, state sales tax, interest rate, and loan term. Many buyers forget that sales tax is added to the financed amount, increasing the loan balance. Enter your state&apos;s sales tax rate or the exact rate from your dealer to see your true monthly car payment. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

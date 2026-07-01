@@ -72,7 +72,7 @@ export default function RetirementPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">Plan your retirement with confidence</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              This retirement calculator projects your 401k and savings growth over time, accounting for employer match, expected investment returns, and inflation. The results show your projected nominal balance at retirement and its inflation-adjusted purchasing power in today&apos;s dollars. The 4% rule estimate shows how much monthly income your savings could support. Starting early has a dramatic impact — 10 more years of compounding can more than double your ending balance.
+              This retirement calculator projects your 401k and savings growth over time, accounting for employer match, expected investment returns, and inflation. The results show your projected nominal balance at retirement and its inflation-adjusted purchasing power in today&apos;s dollars. The 4% rule estimate shows how much monthly income your savings could support. Starting early has a dramatic impact — 10 more years of compounding can more than double your ending balance. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

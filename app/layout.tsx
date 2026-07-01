@@ -8,7 +8,7 @@ const inter = Inter({ variable: '--font-inter', subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'Loan Calculators — Free Financial Calculator Suite',
   description:
-    'Free loan calculators for mortgage, auto, personal loan, student loan, compound interest, salary, tip, sales tax, credit card payoff and more. Instant, private, no signup.',
+    'Free loan calculators for mortgage, auto, personal loan, compound interest, salary, tip, sales tax, credit card payoff and more. Instant, private, no signup.',
   keywords: [
     'loan calculator',
     'mortgage calculator',

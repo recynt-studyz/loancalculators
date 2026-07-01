@@ -72,7 +72,7 @@ export default function SalesTaxPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">2026 sales tax rates for all 50 states</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              This sales tax calculator includes 2026 base state sales tax rates for all 50 US states. State tax rates range from 0% (Alaska, Delaware, Montana, New Hampshire, Oregon) to 7.25% (California). Most purchases also incur local city and county taxes — use the additional local tax field to add your exact local rate. Remember that sales tax on big purchases like cars can add thousands to the total price.
+              This sales tax calculator includes 2026 base state sales tax rates for all 50 US states. State tax rates range from 0% (Alaska, Delaware, Montana, New Hampshire, Oregon) to 7.25% (California). Most purchases also incur local city and county taxes — use the additional local tax field to add your exact local rate. Remember that sales tax on big purchases like cars can add thousands to the total price. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

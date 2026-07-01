@@ -9,7 +9,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'Mortgage Calculator — Monthly Payment & Amortization Schedule',
   description:
-    'Calculate your monthly mortgage payment including principal, interest, taxes, insurance and PMI. Free mortgage calculator with full amortization schedule. No signup.',
+    'Calculate your monthly mortgage payment with taxes, insurance and PMI. Free mortgage calculator with amortization schedule. Instant results, no signup.',
   alternates: { canonical: 'https://loancalculators.app' },
   robots: { index: true, follow: true },
 }

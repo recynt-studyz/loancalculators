@@ -72,7 +72,7 @@ export default function SavingsPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">Plan your savings goal with interest</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              This savings calculator helps you plan for any goal — emergency fund, down payment, vacation, or major purchase. Two modes: find how long it takes to reach your goal with a set monthly contribution, or find how much you need to save monthly to hit your goal by a specific date. Interest is calculated using the compound interest formula, so your savings grow faster the longer you save.
+              This savings calculator helps you plan for any goal — emergency fund, down payment, vacation, or major purchase. Two modes: find how long it takes to reach your goal with a set monthly contribution, or find how much you need to save monthly to hit your goal by a specific date. Interest is calculated using the compound interest formula, so your savings grow faster the longer you save. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

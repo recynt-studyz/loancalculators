@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from 'react'
 
+const fmt = (v: number) =>
+  new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(v)
+
 const STORAGE_KEY = 'lc-dti'
 
 export default function DTICalculator() {
@@ -121,9 +124,9 @@ export default function DTICalculator() {
           <div className="rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-[#1e293b] p-4 space-y-2.5">
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Debt Breakdown</p>
             {[
-              { label: 'Total Monthly Debts', val: `$${totalDebts.toFixed(0)}` },
-              { label: 'Gross Monthly Income', val: `$${income.toFixed(0)}` },
-              { label: 'Housing + Other Debts', val: `$${housing.toFixed(0)} + $${nonHousingDebts.toFixed(0)}` },
+              { label: 'Total Monthly Debts', val: fmt(totalDebts) },
+              { label: 'Gross Monthly Income', val: fmt(income) },
+              { label: 'Housing + Other Debts', val: `${fmt(housing)} + ${fmt(nonHousingDebts)}` },
             ].map(({ label, val }) => (
               <div key={label} className="flex justify-between text-sm">
                 <span className="text-gray-600 dark:text-gray-400">{label}</span>

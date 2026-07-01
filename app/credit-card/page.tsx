@@ -72,7 +72,7 @@ export default function CreditCardPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">Stop guessing — know your exact payoff date</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              Credit card debt is expensive because of high APRs (often 20–30%) that compound monthly. This credit card payoff calculator shows your exact payoff timeline and total interest cost. Use it to see how increasing your monthly payment by even $50–$100 can cut months or years off your payoff date and save hundreds in interest. The month-by-month schedule shows exactly how your balance decreases over time.
+              Credit card debt is expensive because of high APRs (often 20–30%) that compound monthly. This credit card payoff calculator shows your exact payoff timeline and total interest cost. Use it to see how increasing your monthly payment by even $50–$100 can cut months or years off your payoff date and save hundreds in interest. The month-by-month schedule shows exactly how your balance decreases over time. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

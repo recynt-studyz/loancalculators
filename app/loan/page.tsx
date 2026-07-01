@@ -72,7 +72,7 @@ export default function LoanPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">Understanding your personal loan payment</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              Personal loan payments depend on three factors: the loan amount (principal), the annual interest rate, and the loan term. This loan calculator uses the standard amortization formula to give you exact monthly payments for fixed-rate loans. Include any origination fee to see the true effective APR and compare offers from multiple lenders accurately.
+              Personal loan payments depend on three factors: the loan amount (principal), the annual interest rate, and the loan term. This loan calculator uses the standard amortization formula to give you exact monthly payments for fixed-rate loans. Include any origination fee to see the true effective APR and compare offers from multiple lenders accurately. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

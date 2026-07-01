@@ -72,7 +72,7 @@ export default function CompoundInterestPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">The power of compound interest over time</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              Albert Einstein reportedly called compound interest the &quot;eighth wonder of the world.&quot; A $10,000 investment with $200/month at 7% annual return grows to over $138,000 in 20 years — even though total contributions are only $58,000. The remaining $80,000+ is pure compound interest. Starting early makes an enormous difference: money invested in your 20s has decades to compound, while money invested in your 40s has half the time.
+              Albert Einstein reportedly called compound interest the &quot;eighth wonder of the world.&quot; A $10,000 investment with $200/month at 7% annual return grows to over $138,000 in 20 years — even though total contributions are only $58,000. The remaining $80,000+ is pure compound interest. Starting early makes an enormous difference: money invested in your 20s has decades to compound, while money invested in your 40s has half the time. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

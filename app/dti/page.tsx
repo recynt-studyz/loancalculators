@@ -72,7 +72,7 @@ export default function DTIPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">Know your DTI before applying for a mortgage</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              Debt-to-income ratio (DTI) is one of the most important factors lenders evaluate when approving loans. This DTI calculator shows both your front-end ratio (housing costs only) and back-end ratio (all debts), with instant feedback on where you stand relative to lender standards. Check your DTI before applying for a mortgage so you know whether to pay down debts first or if you are already in a strong position to qualify.
+              Debt-to-income ratio (DTI) is one of the most important factors lenders evaluate when approving loans. This DTI calculator shows both your front-end ratio (housing costs only) and back-end ratio (all debts), with instant feedback on where you stand relative to lender standards. Check your DTI before applying for a mortgage so you know whether to pay down debts first or if you are already in a strong position to qualify. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

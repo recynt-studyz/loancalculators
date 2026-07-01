@@ -72,7 +72,7 @@ export default function SalaryPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">Convert salary between all pay periods</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              Whether you are comparing a job offer, negotiating a salary, or trying to understand your true hourly rate, this salary calculator instantly converts between all common pay periods. Type in your hourly rate to see annual salary, or enter your annual salary to find your equivalent hourly wage. The federal tax estimate gives you a rough sense of your take-home pay based on 2026 brackets.
+              Whether you are comparing a job offer, negotiating a salary, or trying to understand your true hourly rate, this salary calculator instantly converts between all common pay periods. Type in your hourly rate to see annual salary, or enter your annual salary to find your equivalent hourly wage. The federal tax estimate gives you a rough sense of your take-home pay based on 2026 brackets. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>

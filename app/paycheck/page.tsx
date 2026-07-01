@@ -72,7 +72,7 @@ export default function PaycheckPage() {
           <div className="rounded-2xl bg-green-50 dark:bg-green-950/30 border border-green-100 dark:border-green-900/50 px-6 py-5 mb-10">
             <h2 className="text-base font-bold text-green-900 dark:text-green-300 mb-2">See exactly what comes out of your paycheck</h2>
             <p className="text-sm text-green-800 dark:text-green-400 leading-relaxed">
-              This paycheck calculator uses 2026 federal income tax brackets and state income tax rates to estimate your take-home pay. Pre-tax deductions like 401k contributions and health insurance premiums are subtracted before calculating federal and state taxes, showing their true tax savings. State income tax rates are approximate — your actual withholding may vary based on your W-4 elections and employer policies. Always verify with your actual pay stub.
+              This paycheck calculator uses 2026 federal income tax brackets and state income tax rates to estimate your take-home pay. Pre-tax deductions like 401k contributions and health insurance premiums are subtracted before calculating federal and state taxes, showing their true tax savings. State income tax rates are approximate — your actual withholding may vary based on your W-4 elections and employer policies. Always verify with your actual pay stub. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
           <div className="pb-10"><FAQ questions={faqs} /></div>
