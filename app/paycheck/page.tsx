@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 }
 
 const faqs: FaqItem[] = [
-  { q: 'How much tax is taken out of my paycheck?', a: 'Federal income tax withholding depends on your income, filing status, and W-4 elections. A single filer earning $5,000 biweekly ($130,000/year) might have 22–24% federal tax withheld. Add 6.2% Social Security, 1.45% Medicare, plus state income tax. Total federal + FICA taxes are typically 20–35% of gross pay for most workers.' },
-  { q: 'What is FICA tax?', a: 'FICA (Federal Insurance Contributions Act) is the combined Social Security and Medicare tax withheld from every paycheck. Employees pay 6.2% for Social Security (on wages up to $176,100 in 2026) and 1.45% for Medicare (on all wages). Your employer matches these amounts. Self-employed individuals pay both halves (15.3% total) as self-employment tax.' },
-  { q: 'How do I increase my take-home pay?', a: 'Increase take-home pay by: (1) Contributing to a pre-tax 401k or HSA, which reduces taxable income; (2) Updating your W-4 to reflect your actual situation (married, dependents, etc.); (3) Contributing to a Dependent Care FSA if you have childcare expenses; (4) Checking if you qualify for tax credits. Consult a tax professional to optimize your withholding.' },
-  { q: 'What is the difference between gross and net pay?', a: 'Gross pay is your total earnings before any deductions — the salary or hourly rate you agreed to. Net pay (take-home pay) is what you actually receive after federal income tax, state income tax, Social Security, Medicare, 401k contributions, health insurance premiums, and any other deductions are withheld. Net pay is typically 65–80% of gross pay.' },
-  { q: 'How does my 401k contribution affect my paycheck?', a: 'Traditional 401k contributions reduce your taxable income dollar-for-dollar. A 6% contribution on a $5,000 paycheck = $300 taken from gross. However, it reduces your taxable income, so your federal tax withholding decreases. The net effect on take-home pay is less than $300 — often $210–$240 depending on your tax bracket — making 401k contributions very efficient.' },
+  { q: 'How much tax is taken out of my paycheck?', a: 'Total paycheck deductions typically include federal income tax (10%–37% depending on income and filing status), Social Security (6.2% up to the wage base of $176,100 in 2026), Medicare (1.45% on all wages), and state income tax (0%–13.3% depending on your state). For a single filer earning $75,000/year paid biweekly, a rough estimate might be: federal income tax ~$7,400/year (~$285/paycheck), Social Security ~$4,650/year (~$179/paycheck), Medicare ~$1,088/year (~$42/paycheck), and state tax varies widely. Total federal + FICA alone often amounts to 20–30% of gross pay for most middle-income workers.' },
+  { q: 'What is FICA tax?', a: 'FICA (Federal Insurance Contributions Act) is the combined Social Security and Medicare payroll tax withheld from every paycheck. Employees pay 6.2% of wages for Social Security on income up to $176,100 (the 2026 wage base) and 1.45% for Medicare on all wages with no cap. Your employer matches both of these amounts, effectively paying another 7.65% on your behalf — a cost invisible to most employees. An additional 0.9% Medicare surtax applies to wages above $200,000 for single filers ($250,000 for married filing jointly). Self-employed individuals pay the full combined 15.3% as self-employment tax, though they can deduct half of it on their tax return.' },
+  { q: 'How do I increase my take-home pay?', a: 'Several strategies can legally increase your net paycheck. Contributing to a traditional 401k or traditional IRA reduces your taxable income dollar-for-dollar, lowering federal (and often state) withholding. Health insurance premiums paid through employer-sponsored plans are pre-tax, further reducing taxable income. Contributing to a Dependent Care FSA (up to $5,000/year) or Health FSA reduces taxable wages for childcare or medical expenses. Updating your W-4 to accurately reflect dependents, itemized deductions, or multiple jobs prevents over-withholding. Note: a large tax refund in April means you over-withheld all year — adjusting your W-4 with HR lets you receive that money in each paycheck instead.' },
+  { q: 'What is the difference between gross and net pay?', a: 'Gross pay is your total compensation before any deductions — the salary figure you negotiated or the hourly rate times hours worked. Net pay (take-home pay) is what actually lands in your bank account after federal income tax, state income tax, Social Security, Medicare, 401k contributions, health insurance premiums, dental, vision, and any other pre- or post-tax deductions are withheld. For most employees, net pay is 65–80% of gross pay. The exact percentage depends on your tax bracket, filing status, benefit elections, and state of residence.' },
+  { q: 'How does my 401k contribution affect my paycheck?', a: 'Traditional 401k contributions are pre-tax: they reduce your taxable income before federal and state taxes are calculated. A 6% contribution on a $3,000 gross biweekly paycheck = $180 deducted. However, because your taxable income decreases by $180, your federal withholding also drops. If you are in the 22% federal bracket, your federal tax falls by $180 &times; 22% = $39.60. So the net reduction to your take-home pay is only $180 &minus; $39.60 = about $140 — not the full $180. You are effectively funding $180 of retirement savings for a cost of only $140 in reduced take-home pay, making traditional 401k contributions one of the most tax-efficient ways to save.' },
 ]
 
 const faqSchema = {
@@ -75,6 +75,51 @@ export default function PaycheckPage() {
               This paycheck calculator uses 2026 federal income tax brackets and state income tax rates to estimate your take-home pay. Pre-tax deductions like 401k contributions and health insurance premiums are subtracted before calculating federal and state taxes, showing their true tax savings. State income tax rates are approximate — your actual withholding may vary based on your W-4 elections and employer policies. Always verify with your actual pay stub. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
+
+          {/* How It Works */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">How the Paycheck Calculator Works</h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              Paycheck calculation follows a specific order of operations. Pre-tax deductions come out first, then FICA taxes are applied to gross wages, then federal and state income taxes are applied to reduced taxable income, and finally any post-tax deductions are subtracted.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 font-mono text-sm bg-gray-50 dark:bg-gray-800 rounded-lg px-4 py-3">
+              Taxable Income = Gross Pay &minus; Pre-Tax Deductions (401k, HSA, health ins.)<br />
+              Federal Tax = Progressive bracket calculation on annualized taxable income<br />
+              State Tax = Taxable Income &times; State Rate (flat or progressive)<br />
+              Social Security = Gross Pay &times; 6.2% (up to annual wage base)<br />
+              Medicare = Gross Pay &times; 1.45%<br />
+              Net Pay = Gross &minus; Federal &minus; State &minus; SS &minus; Medicare &minus; Post-Tax Deductions
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Federal income tax uses the IRS&apos;s progressive bracket system — your income is taxed at different rates in layers (10% on the first portion, 12% on the next, and so on up to 37%). The calculator annualizes your per-paycheck income, applies the bracket math, then divides by the number of pay periods for the per-paycheck withholding amount.
+            </p>
+          </div>
+
+          {/* Worked Example */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Worked Example</h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              Nicole earns $75,000/year as a single filer in Colorado (flat 4.4% state income tax), paid biweekly. She contributes 6% to her traditional 401k and pays $120/paycheck for health insurance.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              Gross biweekly pay: $75,000 / 26 = <strong>$2,885</strong>. Pre-tax deductions: 401k = $2,885 &times; 6% = $173 + health insurance = $120. Total pre-tax deductions: $293. Federal taxable income per paycheck: $2,885 &minus; $293 = $2,592 (annualized: ~$67,400). Estimated federal withholding: ~$260/paycheck. State tax: $2,885 &times; 4.4% = ~$127. Social Security: $2,885 &times; 6.2% = $179. Medicare: $2,885 &times; 1.45% = $42.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Total deductions per paycheck: $260 (federal) + $127 (state) + $179 (SS) + $42 (Medicare) + $293 (pre-tax benefits) = <strong>$901</strong>. <strong>Estimated net (take-home) pay: $2,885 &minus; $901 = approximately $1,984/biweekly paycheck</strong> ($51,584 annually). Her effective combined tax rate on gross pay is about 21%. The 401k contribution of $173 only reduced her take-home by about $130 after the tax savings — illustrating the efficiency of pre-tax retirement savings.
+            </p>
+          </div>
+
+          {/* Key Factors */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Key Factors That Affect Your Take-Home Pay</h2>
+            <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+              <li><strong className="text-gray-900 dark:text-white">Filing Status:</strong> Single, Married Filing Jointly, Married Filing Separately, and Head of Household each use different tax brackets and standard deduction amounts. Married Filing Jointly almost always results in lower total tax than two Single returns, and Head of Household provides a larger standard deduction than Single status.</li>
+              <li><strong className="text-gray-900 dark:text-white">State of Residence:</strong> State income tax ranges from 0% (Texas, Florida, Nevada, and 6 other states) to over 13% in California for high earners. Moving to a no-income-tax state can be worth thousands per year for high earners. The calculator supports all 50 states with approximate 2026 rates.</li>
+              <li><strong className="text-gray-900 dark:text-white">Pre-Tax Deductions:</strong> Traditional 401k, 403b, HSA, FSA, and employer health insurance premiums all reduce your taxable income before federal and state taxes are calculated. Maximizing these deductions is the most effective legal way to increase your take-home pay.</li>
+              <li><strong className="text-gray-900 dark:text-white">Pay Frequency:</strong> Weekly, biweekly, semimonthly, and monthly pay schedules affect withholding calculations. The IRS withholding tables are designed to produce approximately the right annual total regardless of frequency, but slight differences can occur, especially for variable income.</li>
+            </ul>
+          </div>
+
           <div className="pb-10"><FAQ questions={faqs} /></div>
           <div className="pb-6"><AdBanner slot="3333333347" /></div>
         </div>

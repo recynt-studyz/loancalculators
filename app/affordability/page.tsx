@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 }
 
 const faqs: FaqItem[] = [
-  { q: 'How much house can I afford on my salary?', a: 'A general rule is that your home price should be 2.5–3× your annual gross income. On a $100,000 salary, that is $250,000–$300,000. However, this varies based on your debts, down payment, interest rate, and local property taxes and insurance. Our home affordability calculator uses the 28/36 rule to give you a more precise estimate.' },
-  { q: 'What is the 28/36 rule for mortgages?', a: 'The 28/36 rule states that your housing costs should not exceed 28% of your gross monthly income (front-end DTI), and all debt payments combined should not exceed 36% (back-end DTI). On a $100,000 salary ($8,333/month), 28% = $2,333 max housing payment and 36% = $3,000 max total debt payments.' },
-  { q: 'How much should I put down on a house?', a: 'A 20% down payment eliminates PMI (private mortgage insurance) and gives you a lower interest rate. However, many buyers put down 3–10% through FHA loans (3.5% minimum), conventional loans (3% minimum), or VA loans (0% for veterans). A larger down payment means lower monthly payments and less total interest paid.' },
-  { q: 'What is a debt-to-income ratio for a mortgage?', a: 'For mortgage qualification, lenders look at two DTI ratios: Front-end DTI (housing costs ÷ gross income) should be under 28%. Back-end DTI (all monthly debts ÷ gross income) should be under 36–43%. Most conventional loans require back-end DTI under 45%, while FHA loans allow up to 50% in some cases.' },
-  { q: 'How do I save for a house down payment?', a: 'Set a specific savings target (typically 20% of your target home price plus 3–5% for closing costs). Open a dedicated high-yield savings account. Automate monthly transfers on payday. Look into first-time homebuyer programs in your state — many offer grants or low-interest loans for down payment assistance. Our savings calculator can help you plan your timeline.' },
+  { q: 'How much house can I afford on my salary?', a: 'A commonly cited rule of thumb is that your home purchase price should be 2.5–3&times; your annual gross income. On a $95,000 salary that suggests $237,500–$285,000. However, this guideline does not account for your existing debts, down payment size, local property taxes, or interest rate — all of which dramatically affect your actual affordable price. Our home affordability calculator uses the 28/36 rule to give you a more precise estimate based on your full financial picture, including debt payments and down payment.' },
+  { q: 'What is the 28/36 rule for mortgages?', a: 'The 28/36 rule is the underwriting guideline most lenders use to evaluate mortgage applications. It says that your total monthly housing costs (mortgage P&I, property taxes, insurance, PMI, and HOA) should not exceed 28% of your gross monthly income (front-end DTI), and all debt payments combined (housing plus car loans, student loans, credit card minimums, etc.) should not exceed 36% of gross monthly income (back-end DTI). On a $7,917/month gross income ($95,000/year), the limits are $2,217 for housing and $2,850 for all debts combined. Conventional lenders may allow up to 43–45% back-end DTI with strong compensating factors.' },
+  { q: 'How much should I put down on a house?', a: 'A 20% down payment is the traditional benchmark because it eliminates PMI and typically qualifies you for better interest rates. However, many buyers put down far less: FHA loans require only 3.5% down, conventional loans can be as low as 3% through certain programs, and VA loans offer 0% down for eligible veterans. A smaller down payment means a larger loan, higher monthly payment, and usually PMI costs of $50–$200+/month until you reach 20% equity. The right down payment depends on your savings, local home prices, and how long you plan to stay — keeping enough cash reserves for emergencies after closing is just as important as the down payment itself.' },
+  { q: 'What is a debt-to-income ratio for a mortgage?', a: 'Debt-to-income (DTI) ratio is expressed as a percentage: your total monthly debt payments divided by your gross monthly income. Lenders look at two versions. Front-end DTI covers only your proposed housing costs (mortgage, taxes, insurance, HOA, PMI) and should be under 28% for conventional loans. Back-end DTI includes all monthly debts — housing plus car payments, student loans, credit card minimums, personal loans, and any other recurring obligations — and should be under 36%–43% for conventional loans. FHA loans allow up to 50% back-end DTI in some cases. Reducing your monthly debt payments before applying is one of the most effective ways to improve your affordability.' },
+  { q: 'How do I save for a house down payment?', a: 'Start by determining your target — typically 20% of your expected purchase price plus 2–5% for closing costs (inspections, appraisal, title insurance, and prepaid costs). Open a dedicated high-yield savings account specifically for this goal, separate from your emergency fund. Automate monthly transfers on payday so the money is set aside before you can spend it. Look into first-time homebuyer programs in your state — many offer grants, forgivable loans, or below-market-rate mortgages for qualifying buyers. Use our savings calculator to find out exactly how long it will take at your current savings rate, then adjust contributions as needed to hit your target date.' },
 ]
 
 const faqSchema = {
@@ -75,6 +75,50 @@ export default function AffordabilityPage() {
               This home affordability calculator uses the industry-standard 28/36 debt-to-income rule to calculate the maximum home price you can comfortably afford. It accounts for your income, existing debts, down payment, interest rate, property taxes, and insurance to give you three scenarios: conservative (what you can comfortably afford), moderate (the lender standard), and aggressive (the maximum most lenders will approve). Use this as your starting point before talking to a lender. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
+
+          {/* How It Works */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">How the Home Affordability Calculator Works</h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              The calculator starts from the 28/36 rule to determine the maximum allowable monthly housing payment, then works backward through the mortgage formula to find the maximum loan amount, and finally adds your down payment to arrive at the maximum home price.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 font-mono text-sm bg-gray-50 dark:bg-gray-800 rounded-lg px-4 py-3">
+              Max PITI = Gross Monthly Income &times; DTI Threshold (28%–43%)<br />
+              Max P&amp;I = Max PITI &minus; (Property Tax/12) &minus; Insurance/12 &minus; PMI<br />
+              Max Loan = Max P&amp;I &times; (1 &minus; (1+r)^&minus;n) / r<br />
+              Max Home Price = Max Loan + Down Payment
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              The calculator also applies the back-end 36% constraint: your existing monthly debts are subtracted from the maximum total debt payment to find how much room is left for housing costs. The binding constraint — whichever is lower between the front-end 28% limit and the back-end debt-adjusted limit — determines your true maximum home price. Three scenarios (28%, 36%, and 43%) let you see conservative vs. lender-maximum affordability side by side.
+            </p>
+          </div>
+
+          {/* Worked Example */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Worked Example</h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              Kevin and Maria have a combined gross income of $95,000/year ($7,917/month). They have existing debts of $450/month (car payment + student loan minimum). They have $60,000 saved for a down payment. Current 30-year mortgage rates are 7.0%. Their target area has property taxes of about 1.2%/year and they estimate $150/month for homeowner&apos;s insurance.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              <strong>Front-end (28%):</strong> Max PITI = $7,917 &times; 0.28 = $2,217/month. Subtract estimated tax ($300K home &times; 1.2% / 12 = $300) and insurance ($150): max P&amp;I = $2,217 &minus; $300 &minus; $150 = $1,767. At 7% over 30 years, that P&amp;I supports a loan of about <strong>$265,000</strong>. With $60,000 down: max home price &asymp; <strong>$325,000</strong>.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong>Back-end check (36%):</strong> Max total debts = $7,917 &times; 0.36 = $2,850. Subtract existing debts ($450): remaining for housing = $2,400. That is higher than the $2,217 front-end limit, so the front-end limit is the binding constraint. Kevin and Maria&apos;s conservative maximum is a $325,000 home with $60,000 down — putting them comfortably within both guidelines and leaving buffer for unexpected costs.
+            </p>
+          </div>
+
+          {/* Key Factors */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Key Factors That Affect How Much Home You Can Afford</h2>
+            <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+              <li><strong className="text-gray-900 dark:text-white">Gross Income:</strong> Your pre-tax income is the foundation of all DTI calculations. Both wage income and consistent self-employment, rental, or investment income typically count, though lenders may require 2 years of documentation for non-wage income.</li>
+              <li><strong className="text-gray-900 dark:text-white">Existing Monthly Debts:</strong> Every dollar of existing debt payment (car loans, student loans, credit card minimums) reduces the amount lenders will allow for a mortgage. Paying off a $400/month car loan before applying can increase your maximum home price by $60,000–$70,000 at 7% rates.</li>
+              <li><strong className="text-gray-900 dark:text-white">Down Payment:</strong> A larger down payment directly increases your maximum home price, eliminates PMI at 20%+, and reduces the loan amount. The down payment also signals financial discipline to lenders, sometimes earning a more favorable rate.</li>
+              <li><strong className="text-gray-900 dark:text-white">Interest Rate:</strong> Rate changes have a dramatic effect on affordability. The difference between 6.5% and 7.5% on a $300,000 loan is about $180/month — enough to shift your qualifying home price by $25,000–$30,000. Getting pre-approved when rates are favorable locks in a rate for 60–90 days.</li>
+              <li><strong className="text-gray-900 dark:text-white">Property Taxes and Insurance:</strong> These non-mortgage costs vary enormously by location. High-tax states can add $400–$700/month in property taxes on a $300,000 home, dramatically reducing what you can actually afford in mortgage principal and interest.</li>
+            </ul>
+          </div>
+
           <div className="pb-10"><FAQ questions={faqs} /></div>
           <div className="pb-6"><AdBanner slot="3333333345" /></div>
         </div>

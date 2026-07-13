@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 }
 
 const faqs: FaqItem[] = [
-  { q: 'What is a good debt-to-income ratio?', a: 'A DTI ratio under 36% is generally considered excellent by lenders. 36%–43% is acceptable and most conventional mortgage lenders will approve loans in this range. 43%–50% is considered high risk. Above 50% makes it very difficult to qualify for most loans. Our DTI calculator shows your front-end and back-end ratios with a clear status indicator.' },
-  { q: 'How do lenders calculate DTI?', a: 'Lenders calculate DTI by dividing your total monthly debt payments by your gross monthly income (before taxes). They use two versions: Front-end DTI (housing costs only ÷ income) and Back-end DTI (all debt payments ÷ income). Most lenders focus on the back-end DTI and require it to be under 43% for conventional loans.' },
-  { q: 'What is front-end vs back-end DTI?', a: 'Front-end DTI includes only housing costs (mortgage/rent, property taxes, insurance, HOA, PMI) divided by gross monthly income. Lenders want this under 28%. Back-end DTI includes ALL monthly debt payments (housing + car loans + student loans + credit card minimums + other debts) divided by gross income. Lenders want this under 36%–43%.' },
-  { q: 'Can I get a mortgage with high DTI?', a: 'It becomes harder above 43% DTI. FHA loans allow up to 50% DTI with compensating factors (high credit score, large down payment, significant cash reserves). VA loans and USDA loans may also have more flexibility. Some portfolio lenders (who keep loans in-house) may approve higher DTIs. Working to reduce debt before applying significantly improves your chances.' },
-  { q: 'How can I lower my debt-to-income ratio?', a: 'Lower DTI two ways: reduce monthly debt payments or increase gross income. To reduce debts: pay off credit cards or small loan balances, refinance to lower payments, or avoid taking on new debt. To increase income: take a second job, freelance, negotiate a raise, or count other income sources (rental, alimony). Even a small income increase meaningfully lowers DTI percentage.' },
+  { q: 'What is a good debt-to-income ratio?', a: 'A DTI ratio below 36% is generally considered excellent by lenders. Ratios between 36%–43% are acceptable for most conventional mortgages. Above 43% is considered high-risk by most traditional lenders and makes approval difficult, though FHA loans allow up to 50% DTI with compensating factors. Under 20% DTI is ideal and gives you maximum flexibility and the best loan terms. Our DTI calculator shows both your front-end and back-end ratios with a clear status indicator so you can see exactly where you stand before applying for any loan.' },
+  { q: 'How do lenders calculate DTI?', a: 'Lenders calculate DTI by dividing your total monthly debt obligations by your gross monthly income (before taxes and deductions). They use two versions: the front-end ratio (housing costs only divided by income) and the back-end ratio (all monthly debts divided by income). Lenders use your full minimum required payment on each debt, not how much you choose to pay. For credit cards, they use the minimum payment shown on your statement. For revolving lines of credit with no balance, most lenders count $0 since there is no required payment.' },
+  { q: 'What is front-end vs back-end DTI?', a: 'Front-end DTI (also called the housing ratio) includes only your proposed housing costs: principal, interest, property taxes, homeowner\'s insurance, PMI if applicable, and HOA fees. Lenders want this under 28% for conventional loans. Back-end DTI (the total debt ratio) adds all other monthly debt payments to your housing costs: car loans, student loans, credit card minimums, personal loans, alimony, and child support. Lenders want this under 36%–43%. Both ratios matter — a borrower can have a good front-end DTI but be disqualified due to high back-end DTI from other debts.' },
+  { q: 'Can I get a mortgage with high DTI?', a: 'Getting approved with high DTI (above 43%) becomes increasingly difficult with conventional lenders but is not impossible. FHA loans allow back-end DTI up to 50% with compensating factors such as a credit score above 720, a large down payment (10%+), significant cash reserves (3–6 months of mortgage payments), or a history of low housing costs relative to income. VA loans and USDA loans also have more flexibility around DTI. Some portfolio lenders — banks that hold loans in-house rather than selling them — apply their own underwriting standards and may approve higher DTIs for otherwise strong borrowers.' },
+  { q: 'How can I lower my debt-to-income ratio?', a: 'There are two ways to lower DTI: reduce your monthly debt payments or increase your gross income. To reduce debts: pay off credit card balances entirely (minimum payments disappear), pay off or pay down small loans, refinance existing debt to lower payments, or avoid taking on any new debt before applying. To increase income: document all income sources (rental income, freelance, bonuses, alimony received), ask for a raise, take on part-time work, or wait until a scheduled raise takes effect. Even modest income increases have a meaningful impact on DTI percentage. For example, a $300/month income increase on a base of $6,000/month shifts DTI by 5 percentage points.' },
 ]
 
 const faqSchema = {
@@ -75,6 +75,48 @@ export default function DTIPage() {
               Debt-to-income ratio (DTI) is one of the most important factors lenders evaluate when approving loans. This DTI calculator shows both your front-end ratio (housing costs only) and back-end ratio (all debts), with instant feedback on where you stand relative to lender standards. Check your DTI before applying for a mortgage so you know whether to pay down debts first or if you are already in a strong position to qualify. All calculations run in your browser — your data never leaves your device.
             </p>
           </div>
+
+          {/* How It Works */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">How the DTI Calculator Works</h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              Debt-to-income ratio is calculated by dividing your total monthly debt obligations by your gross monthly income and expressing the result as a percentage. There are two versions that lenders evaluate separately:
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4 font-mono text-sm bg-gray-50 dark:bg-gray-800 rounded-lg px-4 py-3">
+              Front-End DTI = Monthly Housing Costs &divide; Gross Monthly Income<br />
+              Back-End DTI = All Monthly Debt Payments &divide; Gross Monthly Income
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Housing costs for the front-end ratio include your proposed mortgage P&amp;I, property taxes, homeowner&apos;s insurance, PMI (if down payment is under 20%), and any HOA dues. Back-end DTI adds all other recurring debt obligations: car loans, student loan payments, credit card minimum payments, personal loans, alimony, and child support. The calculator shows both ratios simultaneously with color-coded status (green/yellow/red) against standard lender thresholds.
+            </p>
+          </div>
+
+          {/* Worked Example */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Worked Example</h2>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              Tom earns $6,500/month gross. He is applying for a mortgage with a $1,650/month PITI payment (including taxes and insurance). He also has a $380/month car payment, $210/month student loan minimum, and $75/month credit card minimum.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+              <strong>Front-end DTI:</strong> $1,650 / $6,500 = <strong>25.4%</strong> ✓ (under 28% limit — good).<br />
+              <strong>Back-end DTI:</strong> ($1,650 + $380 + $210 + $75) / $6,500 = $2,315 / $6,500 = <strong>35.6%</strong> ✓ (just under 36% limit — acceptable).
+            </p>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              Tom qualifies under the 36% guideline, but barely. If his target home were $30,000 more expensive (adding $190/month to PITI), his back-end DTI would jump to 38.5% — still approvable for most conventional loans up to 43–45%, but tighter. If Tom paid off the $75/month credit card minimum before applying, his back-end DTI would drop to 34.4%, giving him a comfortable margin and potentially improving his loan offer.
+            </p>
+          </div>
+
+          {/* Key Factors */}
+          <div className="mb-10">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Key Factors That Affect Your DTI Ratio</h2>
+            <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+              <li><strong className="text-gray-900 dark:text-white">Gross Monthly Income:</strong> DTI is calculated on gross (pre-tax) income, which is why it can feel counterintuitive — a 35% DTI sounds manageable until you realize your after-tax income might be 25–30% lower. A higher gross income directly lowers your DTI percentage, giving you more purchasing power.</li>
+              <li><strong className="text-gray-900 dark:text-white">Existing Debt Payments:</strong> Each existing monthly obligation directly increases your back-end DTI. Eliminating a $400/month car payment before applying is equivalent to earning roughly $1,100 more per month in terms of mortgage qualifying power at a 36% back-end DTI limit.</li>
+              <li><strong className="text-gray-900 dark:text-white">Proposed Housing Payment:</strong> The size of the mortgage you are applying for determines your front-end DTI. A lower-priced home or a larger down payment reduces the proposed payment and improves both front-end and back-end DTI simultaneously.</li>
+              <li><strong className="text-gray-900 dark:text-white">Credit Cards with No Balance:</strong> Credit cards with no balance generally do not count toward DTI since there is no required monthly payment. However, large available credit lines on credit cards can affect lender risk assessment in some programs — it is worth asking your loan officer about this.</li>
+            </ul>
+          </div>
+
           <div className="pb-10"><FAQ questions={faqs} /></div>
           <div className="pb-6"><AdBanner slot="3333333346" /></div>
         </div>
