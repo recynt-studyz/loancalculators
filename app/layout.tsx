@@ -52,6 +52,18 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <head>
         <meta name="google-adsense-account" content="ca-pub-5035661017594256" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z5DX6KBKSJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-Z5DX6KBKSJ');
+          `}
+        </Script>
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{if(localStorage.getItem('loancalculators-theme')==='dark'){document.documentElement.classList.add('dark')}}catch(e){}})()`,
